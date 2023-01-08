@@ -15,11 +15,11 @@ function App() {
     {nome: 'Inovação e Gestão', corPrimaria: '#ff8a29', corSecundaria: '#ffeedf'},
   ]
 
-  const [colaoorores, setColaboradores]  = useState([])
+  const [colaboradores, setColaboradores]  = useState([])
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     console.log(colaborador)
-    setColaboradores([...colaoorores, colaborador])
+    setColaboradores([...colaboradores, colaborador])
   }
 
   return (
@@ -27,7 +27,13 @@ function App() {
       <Banner />
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
 
-      {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} />)}
+      {times.map(time => <Time 
+      key={time.nome} 
+      nome={time.nome} 
+      corPrimaria={time.corPrimaria} 
+      corSecundaria={time.corSecundaria} 
+      colaboradores={colaboradores}
+      />)}
 
     </div>
   );
